@@ -1,0 +1,106 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import FormattedDate from '../../components/FormattedDate.astro';
+import { getCollection } from 'astro:content';
+import { SITE_TITLE } from '../../consts';
+
+// 获取所有非草稿文章并按日期排序 / Get all non-draft posts and sort by date
+const posts = (await getCollection('blog', ({ data }) => {
+  return data.draft !== true;
+})).sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+
+// 按年份分组 / Group by year
+const postsByYear = posts.reduce((acc, post) => {
+  const year = new Date(post.data.pubDate).getFullYear();
+  if (!acc[year]) acc[year] = [];
+  acc[year].push(post);
+  return acc;
+}, {} as Record<number, typeof posts>);
+
+const years = Object.keys(postsByYear).sort((a, b) => Number(b) - Number(a));
+---
+
+<Layout 
+  title={`博客文章 | ${SITE_TITLE}`}
+  description="所有博客文章列表，包括技术分享、经验总结和学习笔记"
+>
+  <div class="mx-auto max-w-4xl px-4 py-16">
+    <!-- 页面标题 / Page title -->
+    <header class="mb-12 text-center">
+      <h1 class="mb-4 text-4xl font-bold text-gray-900 dark:text-white">
+        博客文章
+      </h1>
+      <p class="text-lg text-gray-600 dark:text-gray-400">
+        共 {posts.length} 篇文章
+      </p>
+    </header>
+
+    <!-- 文章列表 / Posts list -->
+    <div class="space-y-16">
+      {years.map((year) => (
+        <section>
+          <h2 class="mb-8 text-2xl font-bold text-gray-900 dark:text-white">
+            {year}
+          </h2>
+          <div class="space-y-8">
+            {postsByYear[Number(year)].map((post) => (
+              <article class="group">
+                <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4">
+                  <div class="flex-1">
+                    <h3 class="mb-2 text-xl font-semibold text-gray-900 dark:text-white">
+                      <a 
+                        href={`/blog/${post.slug}/`}
+                        class="hover:text-primary-600 dark:hover:text-primary-400 transition-colors"
+                      >
+                        {post.data.title}
+                      </a>
+                    </h3>
+                    <p class="mb-3 text-gray-600 dark:text-gray-400">
+                      {post.data.description}
+                    </p>
+                    <div class="flex flex-wrap items-center gap-4 text-sm">
+                      <FormattedDate date={post.data.pubDate} class="text-gray-500 dark:text-gray-500" />
+                      {post.data.category && (
+                        <span class="inline-flex items-center rounded-full bg-primary-100 px-2.5 py-0.5 font-medium text-primary-800 dark:bg-primary-900/20 dark:text-primary-200">
+                          {post.data.category}
+                        </span>
+                      )}
+                      {post.data.tags.length > 0 && (
+                        <div class="flex flex-wrap gap-2">
+                          {post.data.tags.map((tag) => (
+                            <a
+                              href={`/tags/${tag}`}
+                              class="text-gray-500 hover:text-primary-600 dark:text-gray-500 dark:hover:text-primary-400"
+                            >
+                              #{tag}
+                            </a>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                  <div class="hidden sm:block">
+                    <span class="inline-flex items-center text-sm text-primary-600 dark:text-primary-400 opacity-0 group-hover:opacity-100 transition-opacity">
+                      阅读更多
+                      <svg class="ml-1 h-4 w-4" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                      </svg>
+                    </span>
+                  </div>
+                </div>
+              </article>
+            ))}
+          </div>
+        </section>
+      ))}
+    </div>
+
+    {posts.length === 0 && (
+      <div class="text-center py-12">
+        <p class="text-gray-600 dark:text-gray-400">
+          暂无文章，敬请期待...
+        </p>
+      </div>
+    )}
+  </div>
+</Layout>

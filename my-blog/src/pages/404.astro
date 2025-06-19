@@ -1,0 +1,65 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { SITE_TITLE } from '../consts';
+---
+
+<Layout title={`404 - 页面未找到 | ${SITE_TITLE}`} description="抱歉，您访问的页面不存在">
+  <div class="flex min-h-[60vh] items-center justify-center px-4">
+    <div class="text-center">
+      <!-- 404 图形 / 404 graphic -->
+      <div class="mb-8">
+        <svg class="mx-auto h-32 w-32 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+        </svg>
+      </div>
+
+      <!-- 错误信息 / Error message -->
+      <h1 class="mb-4 text-6xl font-bold text-gray-900 dark:text-white">404</h1>
+      <h2 class="mb-4 text-2xl font-semibold text-gray-700 dark:text-gray-300">
+        页面未找到 Page Not Found
+      </h2>
+      <p class="mb-8 text-gray-600 dark:text-gray-400">
+        抱歉，您访问的页面不存在或已被移除。<br />
+        Sorry, the page you are looking for doesn't exist or has been removed.
+      </p>
+
+      <!-- 操作按钮 / Action buttons -->
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a
+          href="/"
+          class="inline-flex items-center justify-center rounded-full bg-primary-600 px-6 py-3 text-sm font-semibold text-white shadow-sm hover:bg-primary-700 transition-colors"
+        >
+          <svg class="mr-2 h-4 w-4" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
+          </svg>
+          返回首页 Back Home
+        </a>
+        <a
+          href="/blog"
+          class="inline-flex items-center justify-center rounded-full border border-gray-300 bg-white px-6 py-3 text-sm font-semibold text-gray-900 shadow-sm hover:bg-gray-50 dark:border-gray-600 dark:bg-gray-800 dark:text-white dark:hover:bg-gray-700 transition-colors"
+        >
+          <svg class="mr-2 h-4 w-4" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25" />
+          </svg>
+          查看博客 View Blog
+        </a>
+      </div>
+    </div>
+  </div>
+</Layout>
+
+<style>
+  /* 添加一些动画效果 / Add some animation effects */
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+
+  svg {
+    animation: float 3s ease-in-out infinite;
+  }
+</style>

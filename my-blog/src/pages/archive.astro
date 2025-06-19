@@ -1,0 +1,124 @@
+---
+import Layout from '../layouts/Layout.astro';
+import FormattedDate from '../components/FormattedDate.astro';
+import { getCollection } from 'astro:content';
+import { SITE_TITLE } from '../consts';
+
+// 获取所有文章并按日期排序 / Get all posts and sort by date
+const posts = (await getCollection('blog', ({ data }) => {
+  return data.draft !== true;
+})).sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+
+// 统计信息 / Statistics
+const totalPosts = posts.length;
+const categories = [...new Set(posts.map(post => post.data.category))];
+const tags = [...new Set(posts.flatMap(post => post.data.tags))];
+
+// 按月份分组 / Group by month
+const postsByMonth = posts.reduce((acc, post) => {
+  const date = new Date(post.data.pubDate);
+  const key = `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}`;
+  if (!acc[key]) acc[key] = [];
+  acc[key].push(post);
+  return acc;
+}, {} as Record<string, typeof posts>);
+
+const months = Object.keys(postsByMonth).sort((a, b) => b.localeCompare(a));
+---
+
+<Layout 
+  title={`归档 | ${SITE_TITLE}`}
+  description="博客文章归档，按时间顺序查看所有文章"
+>
+  <div class="mx-auto max-w-4xl px-4 py-16">
+    <!-- 页面标题 / Page title -->
+    <header class="mb-12 text-center">
+      <h1 class="mb-4 text-4xl font-bold text-gray-900 dark:text-white">
+        文章归档
+      </h1>
+      <div class="flex flex-wrap justify-center gap-6 text-sm text-gray-600 dark:text-gray-400">
+        <div class="flex items-center gap-2">
+          <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25" />
+          </svg>
+          <span>{totalPosts} 篇文章</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 7.125C2.25 6.504 2.754 6 3.375 6h6c.621 0 1.125.504 1.125 1.125v3.75c0 .621-.504 1.125-1.125 1.125h-6a1.125 1.125 0 01-1.125-1.125v-3.75zM14.25 8.625c0-.621.504-1.125 1.125-1.125h5.25c.621 0 1.125.504 1.125 1.125v8.25c0 .621-.504 1.125-1.125 1.125h-5.25a1.125 1.125 0 01-1.125-1.125v-8.25zM3.75 16.125c0-.621.504-1.125 1.125-1.125h5.25c.621 0 1.125.504 1.125 1.125v2.25c0 .621-.504 1.125-1.125 1.125h-5.25a1.125 1.125 0 01-1.125-1.125v-2.25z" />
+          </svg>
+          <span>{categories.length} 个分类</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9.568 3H5.25A2.25 2.25 0 003 5.25v4.318c0 .597.237 1.17.659 1.591l9.581 9.581c.699.699 1.78.872 2.607.33a18.095 18.095 0 005.223-5.223c.542-.827.369-1.908-.33-2.607L11.16 3.66A2.25 2.25 0 009.568 3z" />
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 6h.008v.008H6V6z" />
+          </svg>
+          <span>{tags.length} 个标签</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- 时间线 / Timeline -->
+    <div class="relative">
+      <!-- 时间线轴 / Timeline axis -->
+      <div class="absolute left-8 top-0 h-full w-0.5 bg-gray-200 dark:bg-gray-800 md:left-1/2"></div>
+
+      {months.map((month, index) => {
+        const [year, monthNum] = month.split('-');
+        const monthName = new Date(Number(year), Number(monthNum) - 1).toLocaleDateString('zh-CN', { month: 'long' });
+        const isEven = index % 2 === 0;
+        
+        return (
+          <div class={`relative mb-12 ${isEven ? 'md:pr-1/2' : 'md:pl-1/2 md:text-right'}`}>
+            <!-- 月份标签 / Month label -->
+            <div class={`mb-4 ${isEven ? 'md:text-right md:pr-8' : 'md:pl-8'}`}>
+              <div class="inline-block rounded-full bg-primary-100 px-4 py-2 dark:bg-primary-900/20">
+                <h2 class="text-lg font-semibold text-primary-800 dark:text-primary-200">
+                  {year}年 {monthName}
+                </h2>
+              </div>
+            </div>
+
+            <!-- 时间点 / Timeline dot -->
+            <div class="absolute left-6 top-2 h-4 w-4 rounded-full border-4 border-white bg-primary-600 dark:border-gray-900 dark:bg-primary-400 md:left-1/2 md:-translate-x-1/2"></div>
+
+            <!-- 文章列表 / Posts list -->
+            <div class={`ml-16 space-y-4 md:ml-0 ${isEven ? 'md:mr-8' : 'md:ml-8'}`}>
+              {postsByMonth[month].map((post) => (
+                <article class={`rounded-lg border border-gray-200 bg-white p-4 dark:border-gray-800 dark:bg-gray-900 ${!isEven && 'md:text-left'}`}>
+                  <h3 class="mb-1 font-semibold text-gray-900 dark:text-white">
+                    <a 
+                      href={`/blog/${post.slug}/`}
+                      class="hover:text-primary-600 dark:hover:text-primary-400"
+                    >
+                      {post.data.title}
+                    </a>
+                  </h3>
+                  <div class="flex flex-wrap items-center gap-3 text-sm text-gray-500 dark:text-gray-500">
+                    <FormattedDate date={post.data.pubDate} />
+                    {post.data.category && (
+                      <span class="text-xs">• {post.data.category}</span>
+                    )}
+                  </div>
+                </article>
+              ))}
+            </div>
+          </div>
+        );
+      })}
+    </div>
+  </div>
+</Layout>
+
+<style>
+  /* 响应式布局调整 / Responsive layout adjustments */
+  @media (min-width: 768px) {
+    .md\:pr-1\/2 {
+      padding-right: 50%;
+    }
+    .md\:pl-1\/2 {
+      padding-left: 50%;
+    }
+  }
+</style>

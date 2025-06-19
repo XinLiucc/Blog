@@ -1,0 +1,86 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+import { SITE_TITLE } from '../../consts';
+
+// 获取所有标签 / Get all tags
+const posts = await getCollection('blog', ({ data }) => {
+  return data.draft !== true;
+});
+
+const tagCounts = posts.reduce((acc, post) => {
+  post.data.tags.forEach(tag => {
+    acc[tag] = (acc[tag] || 0) + 1;
+  });
+  return acc;
+}, {} as Record<string, number>);
+
+const tags = Object.entries(tagCounts).sort((a, b) => b[1] - a[1]);
+---
+
+<Layout 
+  title={`标签 | ${SITE_TITLE}`}
+  description="查看所有文章标签"
+>
+  <div class="mx-auto max-w-4xl px-4 py-16">
+    <!-- 页面标题 / Page title -->
+    <header class="mb-12 text-center">
+      <h1 class="mb-4 text-4xl font-bold text-gray-900 dark:text-white">
+        标签云 Tag Cloud
+      </h1>
+      <p class="text-lg text-gray-600 dark:text-gray-400">
+        共 {tags.length} 个标签
+      </p>
+    </header>
+
+    <!-- 标签云 / Tag cloud -->
+    <div class="flex flex-wrap justify-center gap-4">
+      {tags.map(([tag, count]) => {
+        // 根据文章数量计算字体大小 / Calculate font size based on post count
+        const fontSize = Math.min(Math.max(count * 0.2 + 0.8, 1), 2.5);
+        
+        return (
+          <a
+            href={`/tags/${tag}`}
+            class="group inline-flex items-center gap-2 rounded-full border border-gray-200 bg-white px-4 py-2 transition-all hover:border-primary-300 hover:bg-primary-50 dark:border-gray-800 dark:bg-gray-900 dark:hover:border-primary-700 dark:hover:bg-primary-900/20"
+            style={`font-size: ${fontSize}rem;`}
+          >
+            <span class="font-medium text-gray-700 group-hover:text-primary-600 dark:text-gray-300 dark:group-hover:text-primary-400">
+              {tag}
+            </span>
+            <span class="text-xs text-gray-500 dark:text-gray-500">
+              ({count})
+            </span>
+          </a>
+        );
+      })}
+    </div>
+
+    <!-- 标签统计 / Tag statistics -->
+    <div class="mt-16">
+      <h2 class="mb-8 text-center text-2xl font-bold text-gray-900 dark:text-white">
+        热门标签 Popular Tags
+      </h2>
+      <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        {tags.slice(0, 6).map(([tag, count]) => (
+          <a
+            href={`/tags/${tag}`}
+            class="group flex items-center justify-between rounded-lg border border-gray-200 bg-white p-4 transition-all hover:border-primary-300 hover:shadow-md dark:border-gray-800 dark:bg-gray-900 dark:hover:border-primary-700"
+          >
+            <div>
+              <h3 class="font-semibold text-gray-900 group-hover:text-primary-600 dark:text-white dark:group-hover:text-primary-400">
+                #{tag}
+              </h3>
+              <p class="text-sm text-gray-600 dark:text-gray-400">
+                {count} 篇文章
+              </p>
+            </div>
+            <svg class="h-5 w-5 text-gray-400 group-hover:text-primary-600 dark:group-hover:text-primary-400" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+            </svg>
+          </a>
+        ))}
+      </div>
+    </div>
+  </div>
+</Layout>

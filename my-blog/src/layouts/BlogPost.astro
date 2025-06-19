@@ -1,0 +1,137 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import Layout from './Layout.astro';
+import FormattedDate from '../components/FormattedDate.astro';
+import { SITE_TITLE } from '../consts';
+
+type Props = CollectionEntry<'blog'>['data'];
+
+const { title, description, pubDate, updatedDate, heroImage, heroImageAlt, tags, author, category, readingTime } = Astro.props;
+
+// 计算阅读时间 / Calculate reading time
+const content = await Astro.slots.render('default');
+const wordsPerMinute = 225;
+const wordCount = content.split(/\s+/g).length;
+const minutes = Math.ceil(wordCount / wordsPerMinute);
+const calculatedReadingTime = `${minutes} 分钟阅读 min read`;
+---
+
+<Layout
+  title={`${title} | ${SITE_TITLE}`}
+  description={description}
+  image={heroImage}
+  type="article"
+  pubDate={pubDate}
+>
+  <article class="mx-auto max-w-4xl px-4 py-8">
+    <!-- 文章头部 / Article header -->
+    <header class="mb-8 text-center">
+      <!-- 分类 / Category -->
+      {category && (
+        <div class="mb-4">
+          <span class="inline-flex items-center rounded-full bg-primary-100 px-3 py-1 text-sm font-medium text-primary-800 dark:bg-primary-900/20 dark:text-primary-200">
+            {category}
+          </span>
+        </div>
+      )}
+
+      <!-- 标题 / Title -->
+      <h1 class="mb-4 text-4xl font-bold leading-tight text-gray-900 dark:text-white sm:text-5xl">
+        {title}
+      </h1>
+
+      <!-- 元信息 / Meta info -->
+      <div class="flex flex-wrap items-center justify-center gap-4 text-sm text-gray-600 dark:text-gray-400">
+        <div class="flex items-center gap-1">
+          <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
+          </svg>
+          <span>{author}</span>
+        </div>
+
+        <div class="flex items-center gap-1">
+          <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5" />
+          </svg>
+          <FormattedDate date={pubDate} />
+        </div>
+
+        <div class="flex items-center gap-1">
+          <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+          <span>{readingTime || calculatedReadingTime}</span>
+        </div>
+      </div>
+
+      <!-- 更新日期 / Updated date -->
+      {updatedDate && (
+        <div class="mt-2 text-sm text-gray-500 dark:text-gray-500">
+          最后更新 Last updated: <FormattedDate date={updatedDate} />
+        </div>
+      )}
+    </header>
+
+    <!-- 主图 / Hero image -->
+    {heroImage && (
+      <div class="mb-8 overflow-hidden rounded-xl">
+        <img
+          src={heroImage}
+          alt={heroImageAlt || title}
+          class="w-full h-auto object-cover"
+          loading="eager"
+        />
+      </div>
+    )}
+
+    <!-- 文章内容 / Article content -->
+    <div class="prose prose-lg prose-neutral mx-auto dark:prose-invert prose-headings:scroll-mt-20 prose-a:text-primary-600 prose-a:no-underline hover:prose-a:underline dark:prose-a:text-primary-400">
+      <slot />
+    </div>
+
+    <!-- 标签 / Tags -->
+    {tags && tags.length > 0 && (
+      <footer class="mt-12 pt-8 border-t border-gray-200 dark:border-gray-800">
+        <div class="flex items-center gap-2 flex-wrap">
+          <span class="text-sm font-medium text-gray-700 dark:text-gray-300">标签 Tags:</span>
+          {tags.map((tag) => (
+            <a
+              href={`/tags/${tag}`}
+              class="inline-flex items-center rounded-full bg-gray-100 px-3 py-1 text-sm font-medium text-gray-800 transition-colors hover:bg-gray-200 dark:bg-gray-800 dark:text-gray-200 dark:hover:bg-gray-700"
+            >
+              #{tag}
+            </a>
+          ))}
+        </div>
+      </footer>
+    )}
+  </article>
+
+  <!-- 评论区 / Comments section -->
+  <section class="mx-auto max-w-4xl px-4 py-8">
+    <div id="giscus-comments"></div>
+  </section>
+
+  <!-- Giscus 评论脚本 / Giscus comments script -->
+  <script>
+    import { GISCUS_CONFIG } from '../consts';
+    
+    const script = document.createElement('script');
+    script.src = 'https://giscus.app/client.js';
+    script.setAttribute('data-repo', GISCUS_CONFIG.repo);
+    script.setAttribute('data-repo-id', GISCUS_CONFIG.repoId);
+    script.setAttribute('data-category', GISCUS_CONFIG.category);
+    script.setAttribute('data-category-id', GISCUS_CONFIG.categoryId);
+    script.setAttribute('data-mapping', GISCUS_CONFIG.mapping);
+    script.setAttribute('data-strict', '0');
+    script.setAttribute('data-reactions-enabled', GISCUS_CONFIG.reactionsEnabled);
+    script.setAttribute('data-emit-metadata', GISCUS_CONFIG.emitMetadata);
+    script.setAttribute('data-input-position', GISCUS_CONFIG.inputPosition);
+    script.setAttribute('data-theme', GISCUS_CONFIG.theme);
+    script.setAttribute('data-lang', GISCUS_CONFIG.lang);
+    script.setAttribute('crossorigin', 'anonymous');
+    script.async = true;
+    
+    document.getElementById('giscus-comments')?.appendChild(script);
+  </script>
+</Layout>

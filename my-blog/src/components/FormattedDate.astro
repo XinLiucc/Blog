@@ -1,0 +1,33 @@
+---
+export interface Props {
+  date: Date;
+  class?: string;
+}
+
+const { date, class: className } = Astro.props;
+
+// 格式化日期 / Format date
+const formattedDate = new Date(date).toLocaleDateString('zh-CN', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+});
+
+// 相对时间 / Relative time
+const relativeTime = (() => {
+  const now = new Date();
+  const diff = now.getTime() - date.getTime();
+  const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+  
+  if (days === 0) return '今天 Today';
+  if (days === 1) return '昨天 Yesterday';
+  if (days < 7) return `${days} 天前 days ago`;
+  if (days < 30) return `${Math.floor(days / 7)} 周前 weeks ago`;
+  if (days < 365) return `${Math.floor(days / 30)} 个月前 months ago`;
+  return `${Math.floor(days / 365)} 年前 years ago`;
+})();
+---
+
+<time datetime={date.toISOString()} class={className} title={relativeTime}>
+  {formattedDate}
+</time>

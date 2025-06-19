@@ -1,0 +1,131 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 基础样式 / Base styles */
+@layer base {
+  :root {
+    color-scheme: light;
+    --color-fill: 251, 254, 251;
+    --color-text-base: 40, 39, 40;
+    --color-accent: 0, 108, 172;
+    --color-card: 230, 230, 230;
+    --color-card-muted: 205, 205, 205;
+    --color-border: 236, 233, 233;
+  }
+
+  :root.dark {
+    color-scheme: dark;
+    --color-fill: 33, 39, 55;
+    --color-text-base: 234, 237, 243;
+    --color-accent: 255, 107, 1;
+    --color-card: 52, 63, 96;
+    --color-card-muted: 138, 51, 2;
+    --color-border: 171, 75, 8;
+  }
+
+  html {
+    @apply scroll-smooth;
+  }
+
+  body {
+    @apply flex min-h-screen flex-col bg-[rgb(var(--color-fill))] font-sans text-[rgb(var(--color-text-base))];
+  }
+}
+
+/* 组件样式 / Component styles */
+@layer components {
+  /* 文章内容样式 / Article content styles */
+  .prose {
+    @apply prose-neutral max-w-none dark:prose-invert;
+  }
+
+  /* 代码块样式 / Code block styles */
+  .astro-code {
+    @apply rounded-lg border border-gray-200 bg-gray-50 dark:border-gray-800 dark:bg-gray-900;
+  }
+
+  pre {
+    @apply overflow-x-auto p-4 text-sm;
+  }
+
+  /* 链接样式 / Link styles */
+  a:not(.not-prose) {
+    @apply underline-offset-2 transition-colors hover:text-primary-600 dark:hover:text-primary-400;
+  }
+
+  /* 标题锚点样式 / Heading anchor styles */
+  .anchor-link {
+    @apply ml-2 opacity-0 transition-opacity;
+  }
+
+  h1:hover .anchor-link,
+  h2:hover .anchor-link,
+  h3:hover .anchor-link,
+  h4:hover .anchor-link {
+    @apply opacity-100;
+  }
+
+  /* 标签样式 / Tag styles */
+  .tag {
+    @apply inline-flex items-center rounded-full bg-gray-100 px-3 py-1 text-sm font-medium text-gray-800 transition-colors hover:bg-gray-200 dark:bg-gray-800 dark:text-gray-200 dark:hover:bg-gray-700;
+  }
+
+  /* 卡片样式 / Card styles */
+  .card {
+    @apply rounded-lg border border-gray-200 bg-white p-6 shadow-sm transition-all hover:shadow-md dark:border-gray-800 dark:bg-gray-900;
+  }
+}
+
+/* 工具类 / Utility classes */
+@layer utilities {
+  /* 文本选择样式 / Text selection styles */
+  .selection-primary::selection {
+    @apply bg-primary-200 text-primary-900 dark:bg-primary-900 dark:text-primary-200;
+  }
+
+  /* 动画 / Animations */
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-fade-in {
+    animation: fade-in 0.5s ease-out;
+  }
+
+  /* 滚动条样式 / Scrollbar styles */
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-track {
+    @apply bg-gray-100 dark:bg-gray-800;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    @apply rounded-full bg-gray-400 dark:bg-gray-600;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    @apply bg-gray-500 dark:bg-gray-500;
+  }
+}
+
+/* 打印样式 / Print styles */
+@media print {
+  body {
+    @apply bg-white text-black;
+  }
+
+  .no-print {
+    @apply hidden;
+  }
+}

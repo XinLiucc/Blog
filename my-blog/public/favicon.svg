@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
+  <!-- 背景圆 / Background circle -->
+  <circle cx="64" cy="64" r="60" fill="#3b82f6"/>
+  
+  <!-- 博客图标 - 使用简化的书本形状 / Blog icon - simplified book shape -->
+  <g fill="#ffffff">
+    <!-- 书页 / Book pages -->
+    <path d="M40 35 L40 85 Q40 93 48 93 L64 93 L64 35 Q56 31 48 35 Q40 39 40 35"/>
+    <path d="M88 35 L88 85 Q88 93 80 93 L64 93 L64 35 Q72 31 80 35 Q88 39 88 35"/>
+    
+    <!-- 书脊 / Book spine -->
+    <rect x="62" y="35" width="4" height="58" fill="#e0e7ff"/>
+  </g>
+  
+  <!-- 添加一些装饰性元素 / Add decorative elements -->
+  <circle cx="30" cy="30" r="4" fill="#60a5fa" opacity="0.5"/>
+  <circle cx="98" cy="98" r="3" fill="#60a5fa" opacity="0.5"/>
+  <circle cx="95" cy="33" r="2" fill="#60a5fa" opacity="0.5"/>
+</svg>
