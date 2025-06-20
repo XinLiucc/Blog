@@ -1,5 +1,5 @@
 ---
-title: '深入理解 Webhooks：现代 Web 开发的事件驱动利器'
+title: '深入理解 Webhook：现代 Web 开发的事件驱动利器'
 description: '全面解析 Webhook 的工作原理、应用场景和最佳实践，帮你掌握这个强大的异步通信机制'
 pubDate: 'Jan 15 2025'
 heroImage: '/webhook_explanation.svg'
