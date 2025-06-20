@@ -3,7 +3,7 @@ title: 'Astro 博客性能优化实践'
 description: '深入探讨如何优化 Astro 博客的性能，实现极致的用户体验'
 pubDate: 2025-01-18
 updatedDate: 2025-01-19
-heroImage: '/blog-placeholder-2.jpg'
+heroImage: '/blog-placeholder-2.svg'
 heroImageAlt: '性能优化图表'
 tags: ['Astro', 'Performance', 'Optimization', 'Web Vitals']
 category: '技术'

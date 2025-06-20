@@ -1,0 +1,71 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
+  <!-- 背景渐变 -->
+  <defs>
+    <linearGradient id="bg-gradient-2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#10b981;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0ea5e9;stop-opacity:1" />
+    </linearGradient>
+    
+    <!-- 性能图表样式 -->
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- 背景 -->
+  <rect width="1200" height="630" fill="url(#bg-gradient-2)"/>
+  
+  <!-- 网格背景 -->
+  <g opacity="0.1">
+    <line x1="0" y1="105" x2="1200" y2="105" stroke="white" stroke-width="1"/>
+    <line x1="0" y1="210" x2="1200" y2="210" stroke="white" stroke-width="1"/>
+    <line x1="0" y1="315" x2="1200" y2="315" stroke="white" stroke-width="1"/>
+    <line x1="0" y1="420" x2="1200" y2="420" stroke="white" stroke-width="1"/>
+    <line x1="0" y1="525" x2="1200" y2="525" stroke="white" stroke-width="1"/>
+  </g>
+  
+  <!-- 性能仪表盘 -->
+  <g transform="translate(300, 315)">
+    <!-- 外圈 -->
+    <circle cx="0" cy="0" r="120" fill="none" stroke="white" stroke-width="8" opacity="0.2"/>
+    
+    <!-- 性能弧线 -->
+    <path d="M -120 0 A 120 120 0 0 1 104 -60" fill="none" stroke="white" stroke-width="8" stroke-linecap="round" filter="url(#glow)"/>
+    
+    <!-- 中心数字 -->
+    <text x="0" y="10" font-family="Arial, sans-serif" font-size="48" font-weight="bold" fill="white" text-anchor="middle">98</text>
+    <text x="0" y="35" font-family="Arial, sans-serif" font-size="16" fill="white" opacity="0.8" text-anchor="middle">Performance</text>
+  </g>
+  
+  <!-- 速度计图标 -->
+  <g transform="translate(600, 315)">
+    <rect x="-40" y="-60" width="80" height="100" rx="10" fill="white" opacity="0.1"/>
+    <path d="M -30 -40 L 30 -40 L 20 0 L -20 0 Z" fill="white" opacity="0.8"/>
+    <circle cx="0" cy="0" r="5" fill="white"/>
+    <path d="M 0 0 L 0 -35" stroke="white" stroke-width="3" stroke-linecap="round"/>
+    <text x="0" y="35" font-family="Arial, sans-serif" font-size="16" fill="white" text-anchor="middle">极速加载</text>
+  </g>
+  
+  <!-- 优化图标 -->
+  <g transform="translate(900, 315)">
+    <circle cx="0" cy="0" r="60" fill="white" opacity="0.1"/>
+    <g transform="rotate(45)">
+      <rect x="-5" y="-40" width="10" height="80" fill="white" opacity="0.8"/>
+      <rect x="-40" y="-5" width="80" height="10" fill="white" opacity="0.8"/>
+    </g>
+    <text x="0" y="85" font-family="Arial, sans-serif" font-size="16" fill="white" text-anchor="middle">性能优化</text>
+  </g>
+  
+  <!-- 标题 -->
+  <text x="600" y="100" font-family="Arial, sans-serif" font-size="42" font-weight="bold" fill="white" text-anchor="middle">
+    Astro 博客性能优化
+  </text>
+  
+  <!-- 装饰元素 -->
+  <circle cx="100" cy="500" r="30" fill="white" opacity="0.05"/>
+  <circle cx="1100" cy="130" r="40" fill="white" opacity="0.05"/>
+</svg>

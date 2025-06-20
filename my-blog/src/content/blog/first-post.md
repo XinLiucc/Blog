@@ -2,7 +2,7 @@
 title: '欢迎来到我的新博客 Welcome to My New Blog'
 description: '使用 Astro 和 Tailwind CSS 构建的现代化博客正式上线'
 pubDate: 2025-01-15
-heroImage: '/blog-placeholder-1.jpg'
+heroImage: '/blog-placeholder-1.svg'
 heroImageAlt: 'Astro 博客封面图'
 tags: ['Astro', 'Blog', 'Web Development']
 category: '技术'
