@@ -110,7 +110,7 @@ my-blog/
 1. **克隆仓库**
 ```bash
 git clone https://github.com/XinLiucc/Blog.git
-cd Blog
+cd Blog/my-blog
 ```
 
 2. **安装依赖**
@@ -313,7 +313,7 @@ my-blog/
 1. **Clone the repository**
 ```bash
 git clone https://github.com/XinLiucc/Blog.git
-cd Blog
+cd Blog/my-blog
 ```
 
 2. **Install dependencies**
