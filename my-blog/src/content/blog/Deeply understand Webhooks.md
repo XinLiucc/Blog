@@ -1,10 +1,10 @@
 ---
 title: '深入理解 Webhook：现代 Web 开发的事件驱动利器'
 description: '全面解析 Webhook 的工作原理、应用场景和最佳实践，帮你掌握这个强大的异步通信机制'
-pubDate: 'Jan 15 2025'
+pubDate: 2025-06-20
 heroImage: '/webhook_explanation.svg'
 tags: ['Webhook', 'API', 'Backend', '事件驱动']
-author: 'Xin Liu'
+author: 'XinLiu'
 ---
 
 在现代 Web 开发中，Webhook 已经成为不可或缺的技术之一。无论是 GitHub 的自动部署、支付平台的交易通知，还是聊天机器人的消息推送，Webhook 无处不在。今天，让我们深入了解这个强大的事件驱动机制。
