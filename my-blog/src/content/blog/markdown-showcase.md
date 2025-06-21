@@ -1,11 +1,11 @@
 ---
 title: 'Markdown 功能展示'
 description: '展示博客支持的各种 Markdown 语法和扩展功能'
-pubDate: 2025-01-19
+pubDate: 2025-06-19
 heroImage: '/blog-placeholder-3.svg'
 tags: ['Markdown', 'Tutorial', 'Features']
 category: '技术'
-author: 'Your Name'
+author: 'XinLiu'
 ---
 
 这篇文章展示了本博客支持的各种 Markdown 语法和扩展功能。
