@@ -8,8 +8,8 @@ export const SITE_LANG = 'zh-CN';
 // 社交媒体链接 / Social media links
 export const SOCIAL_LINKS = {
   github: 'https://github.com/XinLiucc',
-  twitter: 'https://twitter.com/yourhandle',
-  email: 'your-email@example.com',
+  qq: 'https://qm.qq.com/cgi-bin/qm/qr?k=467759558',
+  email: 'lxin233@163.com',
   rss: '/rss.xml',
 };
 
