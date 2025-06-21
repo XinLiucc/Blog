@@ -18,12 +18,7 @@ my-blog/
 │   └── 📄 extensions.json        # 推荐扩展列表
 │
 ├── 📁 public/                    # 静态资源目录
-│   ├── 📄 favicon.svg           # 网站图标
-│   ├── 📄 robots.txt            # 搜索引擎爬虫规则
-│   ├── 📄 blog-placeholder-1.svg # 博客占位图1
-│   ├── 📄 blog-placeholder-2.svg # 博客占位图2
-│   ├── 📄 blog-placeholder-3.svg # 博客占位图3
-│   └── 📁 images/               # 图片资源
+│   └── 📁 images                 # 图片资源
 │
 ├── 📁 src/                      # 源代码目录
 │   ├── 📁 components/           # 可复用组件
@@ -35,9 +30,6 @@ my-blog/
 │   │
 │   ├── 📁 content/              # 内容管理
 │   │   ├── 📁 blog/             # 博客文章
-│   │   │   ├── 📄 first-post.md
-│   │   │   ├── 📄 astro-performance-optimization.md
-│   │   │   └── 📄 markdown-showcase.md
 │   │   └── 📄 config.ts         # 内容配置
 │   │
 │   ├── 📁 layouts/              # 页面布局
@@ -221,11 +213,6 @@ my-blog/
 │   └── 📄 extensions.json        # Recommended extensions
 │
 ├── 📁 public/                    # Static assets
-│   ├── 📄 favicon.svg           # Site favicon
-│   ├── 📄 robots.txt            # SEO crawler rules
-│   ├── 📄 blog-placeholder-1.svg # Blog placeholder 1
-│   ├── 📄 blog-placeholder-2.svg # Blog placeholder 2
-│   ├── 📄 blog-placeholder-3.svg # Blog placeholder 3
 │   └── 📁 images/               # Image resources
 │
 ├── 📁 src/                      # Source code
@@ -238,9 +225,6 @@ my-blog/
 │   │
 │   ├── 📁 content/              # Content management
 │   │   ├── 📁 blog/             # Blog posts
-│   │   │   ├── 📄 first-post.md
-│   │   │   ├── 📄 astro-performance-optimization.md
-│   │   │   └── 📄 markdown-showcase.md
 │   │   └── 📄 config.ts         # Content config
 │   │
 │   ├── 📁 layouts/              # Page layouts
