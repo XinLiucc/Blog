@@ -4,6 +4,7 @@ description: '分享我在Node.js开发路上的心得体会，从技术选型�
 pubDate: 2025-06-22
 heroImage: '/nodejs_illustration.svg'
 tags: ['Node.js', 'JavaScript', '后端开发', '全栈开发', '个人经验']
+category: '技术'
 author: 'XinLiu'
 ---
 

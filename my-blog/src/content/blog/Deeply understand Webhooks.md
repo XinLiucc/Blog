@@ -4,6 +4,7 @@ description: '全面解析 Webhook 的工作原理、应用场景和最佳实践
 pubDate: 2025-06-20
 heroImage: '/webhook_explanation.svg'
 tags: ['Webhook', 'API', 'Backend', '事件驱动']
+category: '技术'
 author: 'XinLiu'
 ---
 
