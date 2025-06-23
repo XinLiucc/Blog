@@ -1,0 +1,243 @@
+<svg viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
+  <!-- 定义渐变和滤镜 -->
+  <defs>
+    <!-- 背景渐变 -->
+    <linearGradient id="backgroundGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f172a"/>
+      <stop offset="50%" style="stop-color:#1e293b"/>
+      <stop offset="100%" style="stop-color:#334155"/>
+    </linearGradient>
+    
+    <!-- React蓝色渐变 -->
+    <linearGradient id="reactGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#61dafb"/>
+      <stop offset="100%" style="stop-color:#21a9c9"/>
+    </linearGradient>
+    
+    <!-- 发光效果 -->
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+      <feMerge> 
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    
+    <!-- 阴影效果 -->
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#000" flood-opacity="0.4"/>
+    </filter>
+    
+    <!-- 网格图案 -->
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#334155" stroke-width="0.5" opacity="0.3"/>
+    </pattern>
+  </defs>
+  
+  <!-- 背景 -->
+  <rect width="1200" height="630" fill="url(#backgroundGradient)"/>
+  <rect width="1200" height="630" fill="url(#grid)"/>
+  
+  <!-- 装饰性圆圈 -->
+  <circle cx="100" cy="100" r="60" fill="url(#reactGradient)" opacity="0.1"/>
+  <circle cx="1100" cy="530" r="80" fill="url(#reactGradient)" opacity="0.1"/>
+  <circle cx="1050" cy="150" r="40" fill="#8b5cf6" opacity="0.2"/>
+  
+  <!-- 主要React Logo -->
+  <g transform="translate(150, 200)">
+    <!-- React原子结构 -->
+    <g filter="url(#glow)">
+      <!-- 中心核心 -->
+      <circle cx="0" cy="0" r="8" fill="#61dafb"/>
+      
+      <!-- 三个轨道椭圆 -->
+      <ellipse cx="0" cy="0" rx="60" ry="25" fill="none" stroke="#61dafb" stroke-width="3"/>
+      <ellipse cx="0" cy="0" rx="60" ry="25" fill="none" stroke="#61dafb" stroke-width="3" transform="rotate(60)"/>
+      <ellipse cx="0" cy="0" rx="60" ry="25" fill="none" stroke="#61dafb" stroke-width="3" transform="rotate(-60)"/>
+      
+      <!-- 轨道上的小圆点 -->
+      <circle cx="60" cy="0" r="4" fill="#61dafb">
+        <animateTransform attributeName="transform" type="rotate" values="0;360" dur="10s" repeatCount="indefinite"/>
+      </circle>
+      <circle cx="-30" cy="52" r="4" fill="#61dafb">
+        <animateTransform attributeName="transform" type="rotate" values="60;420" dur="10s" repeatCount="indefinite"/>
+      </circle>
+      <circle cx="-30" cy="-52" r="4" fill="#61dafb">
+        <animateTransform attributeName="transform" type="rotate" values="-60;300" dur="10s" repeatCount="indefinite"/>
+      </circle>
+    </g>
+  </g>
+  
+  <!-- 代码窗口 -->
+  <g transform="translate(400, 120)">
+    <rect x="0" y="0" width="450" height="280" rx="12" fill="#1e293b" filter="url(#shadow)"/>
+    
+    <!-- 窗口标题栏 -->
+    <rect x="0" y="0" width="450" height="35" rx="12" fill="#374151"/>
+    <rect x="0" y="23" width="450" height="12" fill="#374151"/>
+    
+    <!-- 窗口控制按钮 -->
+    <circle cx="20" cy="17" r="5" fill="#ef4444"/>
+    <circle cx="40" cy="17" r="5" fill="#f59e0b"/>
+    <circle cx="60" cy="17" r="5" fill="#10b981"/>
+    
+    <!-- 文件标签 -->
+    <rect x="80" y="7" width="80" height="21" rx="6" fill="#1e293b"/>
+    <text x="120" y="21" font-family="monospace" font-size="11" fill="#61dafb" text-anchor="middle">App.jsx</text>
+    
+    <!-- 代码内容 -->
+    <g transform="translate(20, 55)">
+      <!-- 行号背景 -->
+      <rect x="0" y="0" width="30" height="200" fill="#0f172a"/>
+      
+      <!-- 行号 -->
+      <text x="15" y="20" font-family="monospace" font-size="10" fill="#64748b" text-anchor="middle">1</text>
+      <text x="15" y="35" font-family="monospace" font-size="10" fill="#64748b" text-anchor="middle">2</text>
+      <text x="15" y="50" font-family="monospace" font-size="10" fill="#64748b" text-anchor="middle">3</text>
+      <text x="15" y="65" font-family="monospace" font-size="10" fill="#64748b" text-anchor="middle">4</text>
+      <text x="15" y="80" font-family="monospace" font-size="10" fill="#64748b" text-anchor="middle">5</text>
+      <text x="15" y="95" font-family="monospace" font-size="10" fill="#64748b" text-anchor="middle">6</text>
+      <text x="15" y="110" font-family="monospace" font-size="10" fill="#64748b" text-anchor="middle">7</text>
+      <text x="15" y="125" font-family="monospace" font-size="10" fill="#64748b" text-anchor="middle">8</text>
+      <text x="15" y="140" font-family="monospace" font-size="10" fill="#64748b" text-anchor="middle">9</text>
+      <text x="15" y="155" font-family="monospace" font-size="10" fill="#64748b" text-anchor="middle">10</text>
+      
+      <!-- React代码 -->
+      <g transform="translate(40, 0)">
+        <!-- import语句 -->
+        <text x="0" y="20" font-family="monospace" font-size="11" fill="#c792ea">import</text>
+        <text x="45" y="20" font-family="monospace" font-size="11" fill="#f8f8f2">React</text>
+        <text x="78" y="20" font-family="monospace" font-size="11" fill="#c792ea">from</text>
+        <text x="110" y="20" font-family="monospace" font-size="11" fill="#a9dc76">'react'</text>
+        
+        <!-- 函数定义 -->
+        <text x="0" y="50" font-family="monospace" font-size="11" fill="#c792ea">function</text>
+        <text x="60" y="50" font-family="monospace" font-size="11" fill="#82aaff">App</text>
+        <text x="82" y="50" font-family="monospace" font-size="11" fill="#f8f8f2">()</text>
+        <text x="102" y="50" font-family="monospace" font-size="11" fill="#f8f8f2">{</text>
+        
+        <!-- return语句 -->
+        <text x="20" y="80" font-family="monospace" font-size="11" fill="#c792ea">return</text>
+        <text x="65" y="80" font-family="monospace" font-size="11" fill="#f8f8f2">(</text>
+        
+        <!-- JSX内容 -->
+        <text x="40" y="95" font-family="monospace" font-size="11" fill="#f8f8f2">&lt;</text>
+        <text x="50" y="95" font-family="monospace" font-size="11" fill="#ff6188">div</text>
+        <text x="70" y="95" font-family="monospace" font-size="11" fill="#82aaff">className</text>
+        <text x="125" y="95" font-family="monospace" font-size="11" fill="#f8f8f2">=</text>
+        <text x="135" y="95" font-family="monospace" font-size="11" fill="#a9dc76">"app"</text>
+        <text x="170" y="95" font-family="monospace" font-size="11" fill="#f8f8f2">&gt;</text>
+        
+        <text x="60" y="110" font-family="monospace" font-size="11" fill="#f8f8f2">&lt;</text>
+        <text x="70" y="110" font-family="monospace" font-size="11" fill="#ff6188">h1</text>
+        <text x="85" y="110" font-family="monospace" font-size="11" fill="#f8f8f2">&gt;</text>
+        <text x="95" y="110" font-family="monospace" font-size="11" fill="#a9dc76">Hello React!</text>
+        <text x="175" y="110" font-family="monospace" font-size="11" fill="#f8f8f2">&lt;/</text>
+        <text x="190" y="110" font-family="monospace" font-size="11" fill="#ff6188">h1</text>
+        <text x="205" y="110" font-family="monospace" font-size="11" fill="#f8f8f2">&gt;</text>
+        
+        <text x="40" y="125" font-family="monospace" font-size="11" fill="#f8f8f2">&lt;/</text>
+        <text x="55" y="125" font-family="monospace" font-size="11" fill="#ff6188">div</text>
+        <text x="75" y="125" font-family="monospace" font-size="11" fill="#f8f8f2">&gt;</text>
+        
+        <!-- 闭合括号 -->
+        <text x="20" y="140" font-family="monospace" font-size="11" fill="#f8f8f2">)</text>
+        <text x="0" y="155" font-family="monospace" font-size="11" fill="#f8f8f2">}</text>
+      </g>
+    </g>
+  </g>
+  
+  <!-- 组件图标 -->
+  <g transform="translate(950, 250)">
+    <!-- 组件1 -->
+    <rect x="0" y="0" width="80" height="60" rx="8" fill="#374151" stroke="#61dafb" stroke-width="2"/>
+    <text x="40" y="35" font-family="Arial, sans-serif" font-size="12" fill="#61dafb" text-anchor="middle">Component</text>
+    
+    <!-- 组件2 -->
+    <rect x="0" y="80" width="80" height="60" rx="8" fill="#374151" stroke="#8b5cf6" stroke-width="2"/>
+    <text x="40" y="115" font-family="Arial, sans-serif" font-size="12" fill="#8b5cf6" text-anchor="middle">Hook</text>
+    
+    <!-- 连接线 -->
+    <line x1="40" y1="60" x2="40" y2="80" stroke="#61dafb" stroke-width="2" stroke-dasharray="5,5">
+      <animate attributeName="stroke-dashoffset" values="0;10" dur="2s" repeatCount="indefinite"/>
+    </line>
+  </g>
+  
+  <!-- 标题文字 -->
+  <g transform="translate(600, 480)">
+    <text x="0" y="0" font-family="Arial, sans-serif" font-size="42" font-weight="bold" fill="#f8fafc" text-anchor="middle">
+      React 深度解析
+    </text>
+    <text x="0" y="40" font-family="Arial, sans-serif" font-size="18" fill="#94a3b8" text-anchor="middle">
+      2025年前端开发的首选框架
+    </text>
+  </g>
+  
+  <!-- 特性标签 -->
+  <g transform="translate(100, 450)">
+    <!-- 组件化 -->
+    <rect x="0" y="0" width="100" height="30" rx="15" fill="#10b981" opacity="0.2"/>
+    <rect x="0" y="0" width="100" height="30" rx="15" fill="none" stroke="#10b981" stroke-width="1"/>
+    <text x="50" y="20" font-family="Arial, sans-serif" font-size="12" fill="#10b981" text-anchor="middle">组件化</text>
+    
+    <!-- Virtual DOM -->
+    <rect x="120" y="0" width="100" height="30" rx="15" fill="#f59e0b" opacity="0.2"/>
+    <rect x="120" y="0" width="100" height="30" rx="15" fill="none" stroke="#f59e0b" stroke-width="1"/>
+    <text x="170" y="20" font-family="Arial, sans-serif" font-size="12" fill="#f59e0b" text-anchor="middle">Virtual DOM</text>
+    
+    <!-- Hooks -->
+    <rect x="240" y="0" width="100" height="30" rx="15" fill="#8b5cf6" opacity="0.2"/>
+    <rect x="240" y="0" width="100" height="30" rx="15" fill="none" stroke="#8b5cf6" stroke-width="1"/>
+    <text x="290" y="20" font-family="Arial, sans-serif" font-size="12" fill="#8b5cf6" text-anchor="middle">Hooks</text>
+    
+    <!-- JSX -->
+    <rect x="0" y="50" width="100" height="30" rx="15" fill="#ef4444" opacity="0.2"/>
+    <rect x="0" y="50" width="100" height="30" rx="15" fill="none" stroke="#ef4444" stroke-width="1"/>
+    <text x="50" y="70" font-family="Arial, sans-serif" font-size="12" fill="#ef4444" text-anchor="middle">JSX</text>
+    
+    <!-- Server Components -->
+    <rect x="120" y="50" width="120" height="30" rx="15" fill="#06b6d4" opacity="0.2"/>
+    <rect x="120" y="50" width="120" height="30" rx="15" fill="none" stroke="#06b6d4" stroke-width="1"/>
+    <text x="180" y="70" font-family="Arial, sans-serif" font-size="12" fill="#06b6d4" text-anchor="middle">Server Components</text>
+  </g>
+  
+  <!-- 装饰性代码片段 -->
+  <g transform="translate(900, 80)" opacity="0.4">
+    <text x="0" y="0" font-family="monospace" font-size="10" fill="#61dafb">&lt;/&gt;</text>
+    <text x="30" y="15" font-family="monospace" font-size="8" fill="#8b5cf6">useState</text>
+    <text x="0" y="35" font-family="monospace" font-size="8" fill="#10b981">useEffect</text>
+    <text x="50" y="25" font-family="monospace" font-size="6" fill="#f59e0b">{component}</text>
+  </g>
+  
+  <!-- 数据流动画 -->
+  <g stroke="#61dafb" stroke-width="2" fill="none" opacity="0.6">
+    <path d="M 280 300 Q 350 280 400 290">
+      <animate attributeName="stroke-dasharray" values="0,100;20,80;0,100" dur="3s" repeatCount="indefinite"/>
+    </path>
+    <path d="M 850 200 Q 900 180 950 200">
+      <animate attributeName="stroke-dasharray" values="0,100;20,80;0,100" dur="4s" repeatCount="indefinite"/>
+    </path>
+  </g>
+  
+  <!-- 版本标识 -->
+  <g transform="translate(1050, 50)">
+    <rect x="0" y="0" width="80" height="25" rx="12" fill="#61dafb"/>
+    <text x="40" y="17" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#0f172a" text-anchor="middle">React 19</text>
+  </g>
+  
+  <!-- 浮动粒子效果 -->
+  <g opacity="0.3">
+    <circle cx="300" cy="100" r="3" fill="#61dafb">
+      <animate attributeName="cy" values="100;80;100" dur="4s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.3;0.7;0.3" dur="4s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="800" cy="500" r="2" fill="#8b5cf6">
+      <animate attributeName="cy" values="500;480;500" dur="5s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.3;0.8;0.3" dur="5s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="200" cy="550" r="2" fill="#10b981">
+      <animate attributeName="cy" values="550;530;550" dur="6s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.3;0.6;0.3" dur="6s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+</svg>
