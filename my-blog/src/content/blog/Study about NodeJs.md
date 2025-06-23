@@ -1,5 +1,5 @@
 ---
-title: '我与Node.js的深度实践：从入门到生产环境的完整指南'
+title: 'Node.js的深度实践：从入门到生产环境的完整指南'
 description: '分享我在Node.js开发路上的心得体会，从技术选型到架构设计，从性能优化到生产部署的实战经验总结'
 pubDate: 2025-06-22
 heroImage: '/nodejs_illustration.svg'
