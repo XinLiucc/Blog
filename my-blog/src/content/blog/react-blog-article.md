@@ -1,7 +1,7 @@
 ---
 title: 'React深度解析：为什么它是2025年前端开发的首选框架'
 description: '全面解析React的核心特性、技术优势和最新发展，带你了解这个改变前端开发格局的强大框架'
-pubDate: 2025-06-22
+pubDate: 2025-06-23
 heroImage: '/react-cover.svg'
 tags: ['React', 'JavaScript', '前端开发', 'Hooks', 'React 19', '技术推荐']
 author: 'XinLiu'
