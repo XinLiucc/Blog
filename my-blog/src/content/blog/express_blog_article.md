@@ -2,7 +2,7 @@
 title: 'Express.js全面解析：构建现代Web应用的王者框架'
 description: '深入了解Express.js这个强大而简洁的Node.js Web框架，从基础特性到高级应用，全面掌握现代Web开发的核心技术'
 pubDate: 2025-06-22
-heroImage: '/blog-placeholder-3.jpg'
+heroImage: '/express-cover.svg'
 tags: ['Express.js', 'Node.js', 'Web框架', '后端开发', 'API开发', 'JavaScript']
 author: 'XinLiu'
 ---
