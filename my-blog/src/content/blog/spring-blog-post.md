@@ -2,7 +2,7 @@
 title: 'Spring生态系统完全指南：为什么它是Java开发者的最佳选择'
 description: '深入解析Spring框架的核心优势，从基础概念到企业级应用，全面解读为什么Spring成为Java开发的事实标准'
 pubDate: 2025-06-25
-heroImage: '/blog-placeholder-3.jpg'
+heroImage: '/spring-blog-cover.svg'
 tags: ['Spring', 'Java', '后端开发', '企业级应用', '技术指南']
 author: 'XinLiu'
 ---
