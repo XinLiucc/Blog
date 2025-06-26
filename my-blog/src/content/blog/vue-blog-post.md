@@ -2,7 +2,7 @@
 title: 'Vue.js生态全景图：为什么它是现代前端开发的理想选择'
 description: '深入解析Vue.js框架的核心优势、生态系统和最佳实践，全面解读为什么Vue成为前端开发者最喜爱的框架之一'
 pubDate: 2025-06-26
-heroImage: '/blog-placeholder-4.jpg'
+heroImage: '/vue-blog-cover.svg'
 tags: ['Vue.js', 'JavaScript', '前端开发', '组件化', '技术指南']
 author: 'XinLiu'
 ---
