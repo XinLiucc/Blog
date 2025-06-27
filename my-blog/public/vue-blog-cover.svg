@@ -1,312 +1,317 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg width="1200" height="630" viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
   <defs>
-    <!-- Vue主题渐变 -->
-    <linearGradient id="vueGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#42b883;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#35495e;stop-opacity:1" />
+    <!-- 鲜艳的背景渐变 -->
+    <linearGradient id="modernBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#764ba2;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#f093fb;stop-opacity:1" />
     </linearGradient>
     
-    <!-- 背景渐变 -->
-    <linearGradient id="backgroundGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#2c3e50;stop-opacity:1" />
-      <stop offset="50%" style="stop-color:#34495e;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#2c3e50;stop-opacity:1" />
-    </linearGradient>
-    
-    <!-- Vue绿色到浅绿渐变 -->
-    <linearGradient id="greenGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#42b883;stop-opacity:1" />
-      <stop offset="50%" style="stop-color:#4FC08D;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#42b883;stop-opacity:1" />
-    </linearGradient>
-    
-    <!-- 标题渐变 -->
-    <linearGradient id="titleGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+    <!-- Vue品牌渐变 -->
+    <linearGradient id="vueGreen" x1="0%" y1="0%" x2="100%" y2="0%">
       <stop offset="0%" style="stop-color:#4FC08D;stop-opacity:1" />
-      <stop offset="30%" style="stop-color:#42b883;stop-opacity:1" />
-      <stop offset="70%" style="stop-color:#4FC08D;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#42b883;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#44A08D;stop-opacity:1" />
     </linearGradient>
     
-    <!-- 卡片背景 -->
-    <linearGradient id="cardBg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:rgba(255,255,255,0.15);stop-opacity:1" />
-      <stop offset="100%" style="stop-color:rgba(255,255,255,0.08);stop-opacity:1" />
+    <!-- 橙色渐变 -->
+    <linearGradient id="orangeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ff9a9e;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#fad0c4;stop-opacity:1" />
     </linearGradient>
+    
+    <!-- 蓝色渐变 -->
+    <linearGradient id="blueGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#a8edea;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#fed6e3;stop-opacity:1" />
+    </linearGradient>
+    
+    <!-- 黄色渐变 -->
+    <linearGradient id="yellowGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffecd2;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#fcb69f;stop-opacity:1" />
+    </linearGradient>
+    
+    <!-- 紫色渐变 -->
+    <linearGradient id="purpleGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#d299c2;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#fef9d7;stop-opacity:1" />
+    </linearGradient>
+    
+    <!-- 文字渐变 -->
+    <linearGradient id="textGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#764ba2;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#f093fb;stop-opacity:1" />
+    </linearGradient>
+    
+    <!-- 阴影效果 -->
+    <filter id="softShadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="rgba(0,0,0,0.15)"/>
+    </filter>
     
     <!-- 发光效果 -->
-    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
-      <feGaussianBlur stdDeviation="6" result="coloredBlur"/>
+    <filter id="innerGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
       <feMerge> 
         <feMergeNode in="coloredBlur"/>
         <feMergeNode in="SourceGraphic"/>
       </feMerge>
     </filter>
-    
-    <!-- 投影效果 -->
-    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
-      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="rgba(0,0,0,0.3)"/>
-    </filter>
-    
-    <!-- Vue logo路径 -->
-    <path id="vueLogo" d="M356.9,64.3H280l-69.9,119.3L140.2,64.3H63.3L210.1,345.3L356.9,64.3z M280,64.3H210.1l0,0l-69.9,119.3L210.1,302.9L280,183.6V64.3z" fill="none"/>
-    
-    <!-- 六边形形状 -->
-    <polygon id="hexagon" points="50,0 93.3,25 93.3,75 50,100 6.7,75 6.7,25" fill="none"/>
-    
-    <!-- 组件图标 -->
-    <g id="componentIcon">
-      <rect x="0" y="0" width="30" height="20" rx="3" fill="none" stroke="currentColor" stroke-width="2"/>
-      <rect x="5" y="5" width="8" height="3" fill="currentColor"/>
-      <rect x="17" y="5" width="8" height="3" fill="currentColor"/>
-      <rect x="5" y="12" width="20" height="3" fill="currentColor"/>
-    </g>
   </defs>
   
   <!-- 主背景 -->
-  <rect width="1200" height="630" fill="url(#backgroundGradient)"/>
+  <rect width="1200" height="630" fill="url(#modernBg)"/>
   
-  <!-- 装饰性背景图案 -->
-  <g opacity="0.1">
-    <circle cx="100" cy="100" r="80" fill="#4FC08D"/>
-    <circle cx="1100" cy="530" r="60" fill="#42b883"/>
-    <polygon points="0,630 300,630 150,400" fill="rgba(76,192,141,0.3)"/>
-    <polygon points="1200,0 900,0 1050,230" fill="rgba(66,184,131,0.3)"/>
+  <!-- 装饰性几何背景 -->
+  <g opacity="0.2">
+    <!-- 大圆形装饰 -->
+    <circle cx="200" cy="150" r="120" fill="rgba(255,255,255,0.3)"/>
+    <circle cx="1000" cy="450" r="80" fill="rgba(255,255,255,0.2)"/>
+    
+    <!-- 三角形装饰 -->
+    <polygon points="0,630 200,630 100,430" fill="rgba(255,255,255,0.15)"/>
+    <polygon points="1200,0 1000,0 1100,200" fill="rgba(255,255,255,0.15)"/>
+    
+    <!-- 波浪形装饰 -->
+    <path d="M0,400 Q300,350 600,400 T1200,400 L1200,630 L0,630 Z" fill="rgba(255,255,255,0.1)"/>
   </g>
   
-  <!-- Vue logo区域 -->
-  <g transform="translate(100, 100)">
-    <!-- 外圈发光 -->
-    <circle cx="50" cy="50" r="45" fill="url(#vueGradient)" filter="url(#glow)">
-      <animate attributeName="r" values="45;50;45" dur="4s" repeatCount="indefinite"/>
+  <!-- Vue.js插画风格Logo -->
+  <g transform="translate(150, 120)">
+    <!-- 主圆形背景 -->
+    <circle cx="60" cy="60" r="55" fill="url(#vueGreen)" filter="url(#softShadow)">
+      <animate attributeName="r" values="55;60;55" dur="4s" repeatCount="indefinite"/>
     </circle>
     
-    <!-- Vue logo简化版 -->
-    <g transform="translate(50, 50)">
-      <!-- V形状 -->
-      <path d="M-20,-15 L0,15 L20,-15" stroke="white" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round">
-        <animate attributeName="stroke-width" values="4;6;4" dur="3s" repeatCount="indefinite"/>
-      </path>
-      <path d="M-12,-15 L0,5 L12,-15" stroke="white" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round" opacity="0.7"/>
-    </g>
+    <!-- 装饰性小圆点 -->
+    <circle cx="25" cy="35" r="6" fill="rgba(255,255,255,0.8)">
+      <animate attributeName="cy" values="35;30;35" dur="2s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="95" cy="45" r="4" fill="rgba(255,255,255,0.6)">
+      <animate attributeName="cy" values="45;40;45" dur="3s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="45" cy="100" r="5" fill="rgba(255,255,255,0.7)">
+      <animate attributeName="cy" values="100;95;100" dur="2.5s" repeatCount="indefinite"/>
+    </circle>
     
-    <!-- 环绕的粒子 -->
-    <g>
-      <circle cx="20" cy="20" r="3" fill="#4FC08D">
-        <animateTransform attributeName="transform" type="rotate" 
-                          values="0 50 50;360 50 50" dur="8s" repeatCount="indefinite"/>
-      </circle>
-      <circle cx="80" cy="30" r="2" fill="#42b883">
-        <animateTransform attributeName="transform" type="rotate" 
-                          values="0 50 50;360 50 50" dur="12s" repeatCount="indefinite"/>
-      </circle>
-      <circle cx="30" cy="80" r="2.5" fill="#4FC08D" opacity="0.8">
-        <animateTransform attributeName="transform" type="rotate" 
-                          values="0 50 50;360 50 50" dur="10s" repeatCount="indefinite"/>
-      </circle>
+    <!-- Vue V字形图标 -->
+    <g transform="translate(60, 60)">
+      <path d="M-18,-12 L0,12 L18,-12" stroke="white" stroke-width="5" fill="none" 
+            stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M-12,-12 L0,6 L12,-12" stroke="rgba(255,255,255,0.8)" stroke-width="3" 
+            fill="none" stroke-linecap="round" stroke-linejoin="round"/>
     </g>
   </g>
   
   <!-- 主标题区域 -->
-  <g transform="translate(600, 180)">
-    <!-- Vue.js主标题 -->
-    <text x="0" y="0" text-anchor="middle" fill="url(#titleGradient)" 
-          font-family="Arial, sans-serif" font-size="52" font-weight="bold">
-      Vue.js 生态系统
-      <animate attributeName="fill-opacity" values="0.9;1;0.9" dur="3s" repeatCount="indefinite"/>
+  <g transform="translate(600, 200)">
+    <!-- 主标题 -->
+    <text x="0" y="0" text-anchor="middle" fill="white" 
+          font-family="Arial, sans-serif" font-size="56" font-weight="bold"
+          filter="url(#softShadow)">
+      Vue.js
     </text>
     
     <!-- 副标题 -->
-    <text x="0" y="50" text-anchor="middle" fill="#ECF0F1" 
-          font-family="Arial, sans-serif" font-size="26" font-weight="300" opacity="0.95">
-      现代前端开发的理想选择
+    <text x="0" y="60" text-anchor="middle" fill="rgba(255,255,255,0.95)" 
+          font-family="Arial, sans-serif" font-size="28" font-weight="300">
+      渐进式前端框架
     </text>
     
-    <!-- 装饰线 -->
-    <line x1="-180" y1="25" x2="180" y2="25" stroke="url(#greenGradient)" stroke-width="3" opacity="0.7">
-      <animate attributeName="stroke-dasharray" values="0,360;180,180;360,0;0,360" dur="5s" repeatCount="indefinite"/>
-    </line>
+    <!-- 装饰下划线 -->
+    <rect x="-100" y="20" width="200" height="4" rx="2" fill="rgba(255,255,255,0.8)">
+      <animate attributeName="width" values="0;200;0" dur="4s" repeatCount="indefinite"/>
+    </rect>
   </g>
   
-  <!-- 组件化特色展示 -->
+  <!-- 特性卡片组 -->
   <g transform="translate(600, 320)">
-    <!-- 组件1 -->
-    <g transform="translate(-220, 0)">
-      <rect x="-60" y="-25" width="120" height="50" rx="25" fill="url(#cardBg)" 
-            stroke="rgba(76,192,141,0.5)" stroke-width="1" filter="url(#shadow)">
-        <animate attributeName="y" values="-25;-30;-25" dur="4s" repeatCount="indefinite"/>
+    <!-- 组件化卡片 -->
+    <g transform="translate(-250, 0)">
+      <rect x="-50" y="-30" width="100" height="60" rx="20" fill="url(#orangeGrad)" 
+            filter="url(#softShadow)">
+        <animateTransform attributeName="transform" type="translate" 
+                          values="0,0;0,-5;0,0" dur="3s" repeatCount="indefinite"/>
       </rect>
-      <use href="#componentIcon" x="-40" y="-10" fill="#4FC08D"/>
-      <text x="-15" y="5" fill="white" font-family="Arial, sans-serif" 
-            font-size="14" font-weight="600">Composition API</text>
+      <!-- 组件图标 -->
+      <g transform="translate(0, -10)">
+        <rect x="-15" y="-8" width="12" height="8" rx="2" fill="white" opacity="0.9"/>
+        <rect x="3" y="-8" width="12" height="8" rx="2" fill="white" opacity="0.9"/>
+        <rect x="-15" y="2" width="30" height="6" rx="1" fill="white" opacity="0.9"/>
+      </g>
+      <text x="0" y="20" text-anchor="middle" fill="white" font-family="Arial, sans-serif" 
+            font-size="12" font-weight="600">组件化</text>
     </g>
     
-    <!-- 组件2 -->
-    <g transform="translate(-60, 0)">
-      <rect x="-65" y="-25" width="130" height="50" rx="25" fill="url(#cardBg)" 
-            stroke="rgba(76,192,141,0.5)" stroke-width="1" filter="url(#shadow)">
-        <animate attributeName="y" values="-25;-30;-25" dur="4s" repeatCount="indefinite" begin="1s"/>
+    <!-- 响应式卡片 -->
+    <g transform="translate(-80, 0)">
+      <rect x="-55" y="-30" width="110" height="60" rx="20" fill="url(#blueGrad)" 
+            filter="url(#softShadow)">
+        <animateTransform attributeName="transform" type="translate" 
+                          values="0,0;0,-5;0,0" dur="3s" repeatCount="indefinite" begin="1s"/>
       </rect>
-      <circle cx="-35" cy="0" r="8" fill="#42b883"/>
-      <text x="-20" y="5" fill="white" font-family="Arial, sans-serif" 
-            font-size="14" font-weight="600">Reactive System</text>
+      <!-- 响应式图标 -->
+      <g transform="translate(0, -10)">
+        <circle cx="0" cy="0" r="12" fill="none" stroke="white" stroke-width="2" opacity="0.9"/>
+        <circle cx="0" cy="0" r="6" fill="white" opacity="0.9">
+          <animate attributeName="r" values="6;8;6" dur="2s" repeatCount="indefinite"/>
+        </circle>
+      </g>
+      <text x="0" y="20" text-anchor="middle" fill="white" font-family="Arial, sans-serif" 
+            font-size="12" font-weight="600">响应式系统</text>
     </g>
     
-    <!-- 组件3 -->
-    <g transform="translate(90, 0)">
-      <rect x="-55" y="-25" width="110" height="50" rx="25" fill="url(#cardBg)" 
-            stroke="rgba(76,192,141,0.5)" stroke-width="1" filter="url(#shadow)">
-        <animate attributeName="y" values="-25;-30;-25" dur="4s" repeatCount="indefinite" begin="2s"/>
+    <!-- 生态系统卡片 -->
+    <g transform="translate(80, 0)">
+      <rect x="-50" y="-30" width="100" height="60" rx="20" fill="url(#yellowGrad)" 
+            filter="url(#softShadow)">
+        <animateTransform attributeName="transform" type="translate" 
+                          values="0,0;0,-5;0,0" dur="3s" repeatCount="indefinite" begin="2s"/>
       </rect>
-      <polygon points="-35,-8 -25,8 -15,-8" fill="#4FC08D"/>
-      <text x="-10" y="5" fill="white" font-family="Arial, sans-serif" 
-            font-size="14" font-weight="600">Vue Router</text>
+      <!-- 生态系统图标 -->
+      <g transform="translate(0, -10)">
+        <circle cx="0" cy="0" r="6" fill="white" opacity="0.9"/>
+        <circle cx="-12" cy="0" r="4" fill="white" opacity="0.7"/>
+        <circle cx="12" cy="0" r="4" fill="white" opacity="0.7"/>
+        <circle cx="0" cy="-10" r="3" fill="white" opacity="0.6"/>
+        <circle cx="0" cy="10" r="3" fill="white" opacity="0.6"/>
+        <line x1="-6" y1="0" x2="-8" y2="0" stroke="white" stroke-width="2" opacity="0.8"/>
+        <line x1="6" y1="0" x2="8" y2="0" stroke="white" stroke-width="2" opacity="0.8"/>
+        <line x1="0" y1="-6" x2="0" y2="-7" stroke="white" stroke-width="2" opacity="0.8"/>
+        <line x1="0" y1="6" x2="0" y2="7" stroke="white" stroke-width="2" opacity="0.8"/>
+      </g>
+      <text x="0" y="20" text-anchor="middle" fill="white" font-family="Arial, sans-serif" 
+            font-size="12" font-weight="600">生态系统</text>
     </g>
     
-    <!-- 组件4 -->
-    <g transform="translate(220, 0)">
-      <rect x="-45" y="-25" width="90" height="50" rx="25" fill="url(#cardBg)" 
-            stroke="rgba(76,192,141,0.5)" stroke-width="1" filter="url(#shadow)">
-        <animate attributeName="y" values="-25;-30;-25" dur="4s" repeatCount="indefinite" begin="3s"/>
+    <!-- 易学易用卡片 -->
+    <g transform="translate(250, 0)">
+      <rect x="-50" y="-30" width="100" height="60" rx="20" fill="url(#purpleGrad)" 
+            filter="url(#softShadow)">
+        <animateTransform attributeName="transform" type="translate" 
+                          values="0,0;0,-5;0,0" dur="3s" repeatCount="indefinite" begin="3s"/>
       </rect>
-      <rect x="-35" y="-8" width="6" height="6" fill="#42b883"/>
-      <rect x="-35" y="2" width="6" height="6" fill="#42b883"/>
-      <rect x="-25" y="-8" width="6" height="16" fill="#4FC08D"/>
-      <text x="-10" y="5" fill="white" font-family="Arial, sans-serif" 
-            font-size="14" font-weight="600">Pinia</text>
+      <!-- 易学图标 -->
+      <g transform="translate(0, -10)">
+        <path d="M-8,-6 Q0,6 8,-6" stroke="white" stroke-width="3" fill="none" 
+              stroke-linecap="round" opacity="0.9"/>
+        <circle cx="-5" cy="-8" r="2" fill="white" opacity="0.9"/>
+        <circle cx="5" cy="-8" r="2" fill="white" opacity="0.9"/>
+        <circle cx="0" cy="8" r="2" fill="white" opacity="0.9"/>
+      </g>
+      <text x="0" y="20" text-anchor="middle" fill="white" font-family="Arial, sans-serif" 
+            font-size="12" font-weight="600">易学易用</text>
     </g>
   </g>
   
-  <!-- 代码展示窗口 -->
-  <g transform="translate(150, 450)">
-    <rect x="0" y="0" width="380" height="120" rx="12" fill="rgba(0,0,0,0.8)" 
-          stroke="#42b883" stroke-width="2" filter="url(#shadow)"/>
+  <!-- 装饰性插画元素 -->
+  <g opacity="0.8">
+    <!-- 飞行的纸飞机 -->
+    <g transform="translate(300, 450)">
+      <path d="M0,0 L20,8 L0,16 L4,8 Z" fill="white" opacity="0.9" filter="url(#softShadow)">
+        <animateTransform attributeName="transform" type="translate" 
+                          values="0,0;50,-20;100,0;50,20;0,0" dur="8s" repeatCount="indefinite"/>
+      </path>
+    </g>
     
-    <!-- 窗口控制按钮 -->
-    <circle cx="20" cy="20" r="6" fill="#FF5F57"/>
-    <circle cx="40" cy="20" r="6" fill="#FFBD2E"/>
-    <circle cx="60" cy="20" r="6" fill="#28CA42"/>
+    <!-- 漂浮的代码符号 -->
+    <g transform="translate(900, 180)" opacity="0.7">
+      <text x="0" y="0" fill="white" font-family="Courier New, monospace" font-size="24" font-weight="bold">
+        &lt;/&gt;
+        <animateTransform attributeName="transform" type="rotate" 
+                          values="0;10;-10;0" dur="4s" repeatCount="indefinite"/>
+      </text>
+    </g>
+    
+    <!-- 浮动的心形 -->
+    <g transform="translate(1050, 280)" opacity="0.6">
+      <path d="M12,21.35l-1.45-1.32C5.4,15.36,2,12.28,2,8.5 C2,5.42,4.42,3,7.5,3c1.74,0,3.41,0.81,4.5,2.09C13.09,3.81,14.76,3,16.5,3 C19.58,3,22,5.42,22,8.5c0,3.78-3.4,6.86-8.55,11.54L12,21.35z" 
+            fill="rgba(255,192,203,0.8)" scale="0.8">
+        <animateTransform attributeName="transform" type="scale" 
+                          values="0.8;1;0.8" dur="3s" repeatCount="indefinite"/>
+      </path>
+    </g>
+  </g>
+  
+  <!-- 底部代码展示 -->
+  <g transform="translate(200, 500)">
+    <rect x="0" y="0" width="400" height="80" rx="15" fill="rgba(255,255,255,0.95)" 
+          filter="url(#softShadow)"/>
     
     <!-- 代码内容 -->
-    <text x="20" y="50" fill="#4FC08D" font-family="Courier New, monospace" font-size="14">
-      &lt;script setup&gt;
+    <text x="20" y="30" fill="#42b883" font-family="Courier New, monospace" font-size="14" font-weight="600">
+      &lt;template&gt;
     </text>
-    <text x="20" y="70" fill="#4FC08D" font-family="Courier New, monospace" font-size="14">
-      import { <tspan fill="#FFD93D">ref, computed</tspan> } from <tspan fill="#6AD3F0">'vue'</tspan>
+    <text x="30" y="50" fill="#666" font-family="Courier New, monospace" font-size="14">
+      &lt;h1&gt;{{ <tspan fill="#e74c3c">message</tspan> }}&lt;/h1&gt;
     </text>
-    <text x="20" y="90" fill="#4FC08D" font-family="Courier New, monospace" font-size="14">
-      const <tspan fill="#FFD93D">count</tspan> = <tspan fill="#FF6B9D">ref</tspan>(<tspan fill="#C5E478">0</tspan>)
-    </text>
-    <text x="20" y="110" fill="#95A5A6" font-family="Courier New, monospace" font-size="12">
-      // 现代Vue开发体验
+    <text x="20" y="70" fill="#42b883" font-family="Courier New, monospace" font-size="14" font-weight="600">
+      &lt;/template&gt;
     </text>
   </g>
   
-  <!-- 右侧特性图标 -->
-  <g transform="translate(800, 450)">
-    <!-- 渐进式图标 -->
-    <g>
-      <circle cx="0" cy="0" r="30" fill="rgba(76,192,141,0.2)" stroke="#4FC08D" stroke-width="2"/>
-      <rect x="-15" y="-15" width="30" height="10" fill="none" stroke="#4FC08D" stroke-width="2"/>
-      <rect x="-10" y="-5" width="20" height="10" fill="none" stroke="#4FC08D" stroke-width="2"/>
-      <rect x="-5" y="5" width="10" height="10" fill="none" stroke="#4FC08D" stroke-width="2"/>
-      <text x="0" y="55" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="12">渐进式</text>
-    </g>
+  <!-- 右侧装饰插画 -->
+  <g transform="translate(850, 480)">
+    <!-- 电脑图标 -->
+    <rect x="0" y="20" width="80" height="50" rx="4" fill="white" filter="url(#softShadow)"/>
+    <rect x="5" y="25" width="70" height="35" rx="2" fill="#42b883"/>
+    <rect x="30" y="70" width="20" height="4" rx="2" fill="white"/>
+    <rect x="25" y="74" width="30" height="6" rx="3" fill="white"/>
     
-    <!-- 高性能图标 -->
-    <g transform="translate(120, 0)">
-      <circle cx="0" cy="0" r="30" fill="rgba(76,192,141,0.2)" stroke="#42b883" stroke-width="2"/>
-      <path d="M-15,-10 L-5,10 L5,-15 L15,5" stroke="#42b883" stroke-width="3" fill="none" stroke-linecap="round"/>
-      <circle cx="10" cy="-5" r="3" fill="#42b883"/>
-      <text x="0" y="55" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="12">高性能</text>
-    </g>
+    <!-- 屏幕内容 -->
+    <rect x="10" y="30" width="60" height="5" rx="1" fill="rgba(255,255,255,0.9)"/>
+    <rect x="10" y="38" width="45" height="3" rx="1" fill="rgba(255,255,255,0.7)"/>
+    <rect x="10" y="44" width="55" height="3" rx="1" fill="rgba(255,255,255,0.7)"/>
+    <rect x="10" y="50" width="35" height="3" rx="1" fill="rgba(255,255,255,0.7)"/>
     
-    <!-- 易用性图标 -->
-    <g transform="translate(240, 0)">
-      <circle cx="0" cy="0" r="30" fill="rgba(76,192,141,0.2)" stroke="#4FC08D" stroke-width="2"/>
-      <circle cx="0" cy="-8" r="8" fill="none" stroke="#4FC08D" stroke-width="2"/>
-      <path d="M-8,5 Q0,15 8,5" stroke="#4FC08D" stroke-width="2" fill="none"/>
-      <circle cx="-5" cy="-8" r="2" fill="#4FC08D"/>
-      <circle cx="5" cy="-8" r="2" fill="#4FC08D"/>
-      <text x="0" y="55" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="12">易上手</text>
-    </g>
-  </g>
-  
-  <!-- 装饰性几何元素 -->
-  <g opacity="0.4">
-    <!-- 旋转的六边形 -->
-    <g transform="translate(1000, 150)">
-      <use href="#hexagon" stroke="#4FC08D" stroke-width="2" opacity="0.6">
-        <animateTransform attributeName="transform" type="rotate" 
-                          values="0 50 50;360 50 50" dur="20s" repeatCount="indefinite"/>
-      </use>
-      <use href="#hexagon" stroke="#42b883" stroke-width="1.5" opacity="0.4" 
-           transform="scale(0.7) translate(15, 15)">
-        <animateTransform attributeName="transform" type="rotate" 
-                          values="360 50 50;0 50 50" dur="25s" repeatCount="indefinite"/>
-      </use>
-    </g>
-    
-    <!-- 浮动三角形 -->
-    <g transform="translate(150, 300)">
-      <polygon points="0,0 30,20 0,40" fill="none" stroke="#4FC08D" stroke-width="2" opacity="0.5">
-        <animateTransform attributeName="transform" type="rotate" 
-                          values="0 15 20;120 15 20;0 15 20" dur="10s" repeatCount="indefinite"/>
-      </animateTransform>
-    </g>
-  </g>
-  
-  <!-- 底部装饰线条 -->
-  <g transform="translate(0, 580)" opacity="0.6">
-    <path d="M0,20 Q300,0 600,20 T1200,20" stroke="url(#greenGradient)" stroke-width="3" fill="none">
-      <animate attributeName="d" 
-               values="M0,20 Q300,0 600,20 T1200,20;M0,20 Q300,40 600,20 T1200,20;M0,20 Q300,0 600,20 T1200,20" 
-               dur="8s" repeatCount="indefinite"/>
-    </path>
-    <path d="M0,30 Q400,10 800,30 T1200,30" stroke="#42b883" stroke-width="2" fill="none" opacity="0.7">
-      <animate attributeName="d" 
-               values="M0,30 Q400,10 800,30 T1200,30;M0,30 Q400,50 800,30 T1200,30;M0,30 Q400,10 800,30 T1200,30" 
-               dur="6s" repeatCount="indefinite"/>
-    </path>
-  </g>
-  
-  <!-- 浮动粒子 -->
-  <g opacity="0.5">
-    <circle cx="300" cy="250" r="3" fill="#4FC08D">
-      <animateMotion dur="15s" repeatCount="indefinite">
-        <mpath href="#particle1"/>
+    <!-- 飞行的点 -->
+    <circle cx="100" cy="30" r="3" fill="#ff6b6b">
+      <animateMotion dur="6s" repeatCount="indefinite">
+        <mpath href="#floatPath"/>
       </animateMotion>
-      <animate attributeName="opacity" values="0.3;0.8;0.3" dur="4s" repeatCount="indefinite"/>
-    </circle>
-    
-    <circle cx="900" cy="350" r="2" fill="#42b883">
-      <animateMotion dur="12s" repeatCount="indefinite">
-        <mpath href="#particle2"/>
-      </animateMotion>
-      <animate attributeName="opacity" values="0.4;0.9;0.4" dur="3s" repeatCount="indefinite"/>
-    </circle>
-    
-    <circle cx="200" cy="400" r="2.5" fill="#4FC08D">
-      <animateMotion dur="18s" repeatCount="indefinite">
-        <mpath href="#particle3"/>
-      </animateMotion>
-      <animate attributeName="opacity" values="0.5;1;0.5" dur="5s" repeatCount="indefinite"/>
     </circle>
   </g>
   
   <!-- 作者信息 -->
   <g transform="translate(1050, 590)">
-    <text x="0" y="0" text-anchor="end" fill="rgba(255,255,255,0.9)" 
-          font-family="Arial, sans-serif" font-size="16" font-weight="500">
+    <rect x="-80" y="-15" width="160" height="30" rx="15" fill="rgba(255,255,255,0.2)" 
+          filter="url(#softShadow)"/>
+    <text x="0" y="5" text-anchor="middle" fill="white" 
+          font-family="Arial, sans-serif" font-size="14" font-weight="500">
       XinLiu 技术博客
     </text>
   </g>
   
-  <!-- 粒子路径定义 -->
+  <!-- 浮动粒子动画 -->
+  <g opacity="0.6">
+    <circle cx="100" cy="300" r="4" fill="rgba(255,255,255,0.8)">
+      <animateMotion dur="20s" repeatCount="indefinite">
+        <mpath href="#particleFloat1"/>
+      </animateMotion>
+      <animate attributeName="opacity" values="0.3;0.8;0.3" dur="4s" repeatCount="indefinite"/>
+    </circle>
+    
+    <circle cx="1100" cy="200" r="3" fill="rgba(255,255,255,0.7)">
+      <animateMotion dur="15s" repeatCount="indefinite">
+        <mpath href="#particleFloat2"/>
+      </animateMotion>
+      <animate attributeName="opacity" values="0.4;0.9;0.4" dur="3s" repeatCount="indefinite"/>
+    </circle>
+    
+    <circle cx="500" cy="100" r="2" fill="rgba(255,255,255,0.6)">
+      <animateMotion dur="12s" repeatCount="indefinite">
+        <mpath href="#particleFloat3"/>
+      </animateMotion>
+      <animate attributeName="opacity" values="0.5;1;0.5" dur="5s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+  
+  <!-- 路径定义 -->
   <defs>
-    <path id="particle1" d="M300,250 Q500,150 700,250 Q900,200 1100,250 Q800,350 300,250" fill="none"/>
-    <path id="particle2" d="M900,350 Q700,450 500,350 Q300,300 100,350 Q400,500 900,350" fill="none"/>
-    <path id="particle3" d="M200,400 Q400,300 600,400 Q800,350 1000,400 Q600,520 200,400" fill="none"/>
+    <path id="floatPath" d="M0,0 Q20,-10 40,0 Q60,10 80,0" fill="none"/>
+    <path id="particleFloat1" d="M100,300 Q300,200 500,300 Q700,250 900,300 Q700,400 100,300" fill="none"/>
+    <path id="particleFloat2" d="M1100,200 Q900,300 700,200 Q500,150 300,200 Q600,350 1100,200" fill="none"/>
+    <path id="particleFloat3" d="M500,100 Q300,200 500,300 Q700,200 900,300 Q700,50 500,100" fill="none"/>
   </defs>
 </svg>
